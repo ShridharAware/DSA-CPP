@@ -25,9 +25,26 @@ long long int sqrt(int x)
     }
     return ans;
 }
+
+double preciseSqrt(int num, int precision, int temp)
+{
+    double factor = 1;
+    double ans = temp;
+    for (int i = 0; i < precision; i++)
+    {
+        factor = factor / 10;
+        for (double j = ans; j * j < num; j = j + factor)
+        {
+            ans = j;
+        }
+    }
+    return ans;
+}
+
 int main()
 {
-    int num = 49;
-    int ans = sqrt(num);
+    int num = 37;
+    int temp = sqrt(num);
+    double ans = preciseSqrt(num, 3, temp);
     cout << "Square root of " << num << " is " << ans << ".";
 }
