@@ -12,11 +12,12 @@ void printArray(int nums[], int size)
 
 void InsertionSort(int nums[], int size)
 {
-    for (int i = 1; i < size; i++)
+    int i = 1;
+    while (i < size)
     {
         int temp = nums[i];
         int j = i - 1;
-        for (; j >= 0; j--)
+        while (j >= 0)
         {
             if (nums[j] > temp)
             {
@@ -26,11 +27,12 @@ void InsertionSort(int nums[], int size)
             {
                 break;
             }
+            j--;
         }
         nums[j + 1] = temp;
+        i++;
     }
 }
-
 int main()
 {
     int size;
